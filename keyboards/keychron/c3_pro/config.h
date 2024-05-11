@@ -17,8 +17,6 @@
 #pragma once
 
 /* Indication led */
-#define LED_MAC_OS_PIN A4
-#define LED_WIN_OS_PIN A5
 #define LED_OS_PIN_ON_STATE 1
 
 /* I2C driver Configuration */
