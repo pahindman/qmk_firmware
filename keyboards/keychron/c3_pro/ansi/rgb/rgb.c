@@ -16,154 +16,134 @@
 
 #include "quantum.h"
 
-#ifdef LED_MATRIX_ENABLE
 // clang-format off
+#ifdef RGB_MATRIX_ENABLE
 const snled27351_led_t PROGMEM g_snled27351_leds[SNLED27351_LED_COUNT] = {
-/* Refer to CKLED2001 manual for these locations
+/* Refer to SNLED27351 manual for these locations
  *   driver
- *   |  LED address
- *   |  | */
-    {0, F_1},
-    {0, F_3},
-    {0, F_4},
-    {0, F_5},
-    {0, F_6},
-    {0, F_7},
-    {0, F_8},
-    {0, F_9},
-    {0, F_10},
-    {0, F_11},
-    {0, F_12},
-    {0, F_13},
-    {0, F_14},
-    {0, F_15},
-    {0, F_16},
-    {0, C_13},
+ *   |  R location
+ *   |  |           G location
+ *   |  |           |           B location
+ *   |  |           |           | */
+    {0, CB9_CA1,    CB7_CA1,    CB8_CA1},
+    {0, CB9_CA3,    CB7_CA3,    CB8_CA3},
+    {0, CB9_CA4,    CB7_CA4,    CB8_CA4},
+    {0, CB9_CA5,    CB7_CA5,    CB8_CA5},
+    {0, CB9_CA6,    CB7_CA6,    CB8_CA6},
+    {0, CB9_CA7,    CB7_CA7,    CB8_CA7},
+    {0, CB9_CA8,    CB7_CA8,    CB8_CA8},
+    {0, CB9_CA9,    CB7_CA9,    CB8_CA9},
+    {0, CB9_CA10,   CB7_CA10,   CB8_CA10},
+    {0, CB9_CA11,   CB7_CA11,   CB8_CA11},
+    {0, CB9_CA12,   CB7_CA12,   CB8_CA12},
+    {0, CB9_CA13,   CB7_CA13,   CB8_CA13},
+    {0, CB9_CA14,   CB7_CA14,   CB8_CA14},
+    {0, CB9_CA15,   CB7_CA15,   CB8_CA15},
+    {0, CB9_CA16,   CB7_CA16,   CB8_CA16},
+    {1, CB9_CA16,   CB7_CA16,   CB8_CA16},
 
-    {0, E_1},
-    {0, E_2},
-    {0, E_3},
-    {0, E_4},
-    {0, E_5},
-    {0, E_6},
-    {0, E_7},
-    {0, E_8},
-    {0, E_9},
-    {0, E_10},
-    {0, E_11},
-    {0, E_12},
-    {0, E_13},
-    {0, E_14},
-    {0, E_15},
-    {0, E_16},
-    {0, C_15},
+    {0, CB6_CA1,    CB4_CA1,    CB5_CA1},
+    {0, CB6_CA2,    CB4_CA2,    CB5_CA2},
+    {0, CB6_CA3,    CB4_CA3,    CB5_CA3},
+    {0, CB6_CA4,    CB4_CA4,    CB5_CA4},
+    {0, CB6_CA5,    CB4_CA5,    CB5_CA5},
+    {0, CB6_CA6,    CB4_CA6,    CB5_CA6},
+    {0, CB6_CA7,    CB4_CA7,    CB5_CA7},
+    {0, CB6_CA8,    CB4_CA8,    CB5_CA8},
+    {0, CB6_CA9,    CB4_CA9,    CB5_CA9},
+    {0, CB6_CA10,   CB4_CA10,   CB5_CA10},
+    {0, CB6_CA11,   CB4_CA11,   CB5_CA11},
+    {0, CB6_CA12,   CB4_CA12,   CB5_CA12},
+    {0, CB6_CA13,   CB4_CA13,   CB5_CA13},
+    {0, CB6_CA14,   CB4_CA14,   CB5_CA14},
+    {0, CB6_CA15,   CB4_CA15,   CB5_CA15},
+    {0, CB6_CA16,   CB4_CA16,   CB5_CA16},
+    {1, CB9_CA13,   CB7_CA13,   CB8_CA13},
 
-    {0, D_1},
-    {0, D_2},
-    {0, D_3},
-    {0, D_4},
-    {0, D_5},
-    {0, D_6},
-    {0, D_7},
-    {0, D_8},
-    {0, D_9},
-    {0, D_10},
-    {0, D_11},
-    {0, D_12},
-    {0, D_13},
-    {0, D_14},
-    {0, D_15},
-    {0, D_16},
-    {0, C_16},
+    {0, CB3_CA1,    CB1_CA1,    CB2_CA1},
+    {0, CB3_CA2,    CB1_CA2,    CB2_CA2},
+    {0, CB3_CA3,    CB1_CA3,    CB2_CA3},
+    {0, CB3_CA4,    CB1_CA4,    CB2_CA4},
+    {0, CB3_CA5,    CB1_CA5,    CB2_CA5},
+    {0, CB3_CA6,    CB1_CA6,    CB2_CA6},
+    {0, CB3_CA7,    CB1_CA7,    CB2_CA7},
+    {0, CB3_CA8,    CB1_CA8,    CB2_CA8},
+    {0, CB3_CA9,    CB1_CA9,    CB2_CA9},
+    {0, CB3_CA10,   CB1_CA10,   CB2_CA10},
+    {0, CB3_CA11,   CB1_CA11,   CB2_CA11},
+    {0, CB3_CA12,   CB1_CA12,   CB2_CA12},
+    {0, CB3_CA13,   CB1_CA13,   CB2_CA13},
+    {0, CB3_CA14,   CB1_CA14,   CB2_CA14},
+    {0, CB3_CA15,   CB1_CA15,   CB2_CA15},
+    {0, CB3_CA16,   CB1_CA16,   CB2_CA16},
+    {1, CB9_CA15,   CB7_CA15,   CB8_CA15},
 
-    {0, C_1},
-    {0, C_2},
-    {0, C_3},
-    {0, C_4},
-    {0, C_5},
-    {0, C_6},
-    {0, C_7},
-    {0, C_8},
-    {0, C_9},
-    {0, C_10},
-    {0, C_11},
-    {0, C_12},
-    {0, C_14},
+    {1, CB9_CA1,    CB7_CA1,    CB8_CA1},
+    {1, CB9_CA2,    CB7_CA2,    CB8_CA2},
+    {1, CB9_CA3,    CB7_CA3,    CB8_CA3},
+    {1, CB9_CA4,    CB7_CA4,    CB8_CA4},
+    {1, CB9_CA5,    CB7_CA5,    CB8_CA5},
+    {1, CB9_CA6,    CB7_CA6,    CB8_CA6},
+    {1, CB9_CA7,    CB7_CA7,    CB8_CA7},
+    {1, CB9_CA8,    CB7_CA8,    CB8_CA8},
+    {1, CB9_CA9,    CB7_CA9,    CB8_CA9},
+    {1, CB9_CA10,   CB7_CA10,   CB8_CA10},
+    {1, CB9_CA11,   CB7_CA11,   CB8_CA11},
+    {1, CB9_CA12,   CB7_CA12,   CB8_CA12},
+    {1, CB9_CA14,   CB7_CA14,   CB8_CA14},
 
-    {0, B_1},
-    {0, B_3},
-    {0, B_4},
-    {0, B_5},
-    {0, B_6},
-    {0, B_7},
-    {0, B_8},
-    {0, B_9},
-    {0, B_10},
-    {0, B_11},
-    {0, B_12},
-    {0, B_14},
-    {0, B_16},
+    {1, CB3_CA1,    CB1_CA1,    CB2_CA1},
+    {1, CB3_CA3,    CB1_CA3,    CB2_CA3},
+    {1, CB3_CA4,    CB1_CA4,    CB2_CA4},
+    {1, CB3_CA5,    CB1_CA5,    CB2_CA5},
+    {1, CB3_CA6,    CB1_CA6,    CB2_CA6},
+    {1, CB3_CA7,    CB1_CA7,    CB2_CA7},
+    {1, CB3_CA8,    CB1_CA8,    CB2_CA8},
+    {1, CB3_CA9,    CB1_CA9,    CB2_CA9},
+    {1, CB3_CA10,   CB1_CA10,   CB2_CA10},
+    {1, CB3_CA11,   CB1_CA11,   CB2_CA11},
+    {1, CB3_CA12,   CB1_CA12,   CB2_CA12},
+    {1, CB3_CA14,   CB1_CA14,   CB2_CA14},
+    {1, CB3_CA16,   CB1_CA16,   CB2_CA16},
 
-    {0, A_1},
-    {0, A_2},
-    {0, A_3},
-    {0, A_7},
-    {0, A_11},
-    {0, A_12},
-    {0, A_13},
-    {0, A_14},
-    {0, A_15},
-    {0, A_16},
-    {0, B_15},
-
-    {0, G_1},
-    {0, G_2},
-    {0, G_3},
-    {0, G_4},
-    {0, G_5},
-    {0, G_6},
-    {0, G_12},
-    {0, G_11},
-    {0, G_10},
-    {0, G_9},
-    {0, G_8},
-    {0, G_7},
+    {1, CB6_CA1,    CB4_CA1,    CB5_CA1},
+    {1, CB6_CA2,    CB4_CA2,    CB5_CA2},
+    {1, CB6_CA3,    CB4_CA3,    CB5_CA3},
+    {1, CB6_CA7,    CB4_CA7,    CB5_CA7},
+    {1, CB6_CA11,   CB4_CA11,   CB5_CA11},
+    {1, CB6_CA12,   CB4_CA12,   CB5_CA12},
+    {1, CB6_CA13,   CB4_CA13,   CB5_CA13},
+    {1, CB6_CA14,   CB4_CA14,   CB5_CA14},
+    {1, CB6_CA15,   CB4_CA15,   CB5_CA15},
+    {1, CB6_CA16,   CB4_CA16,   CB5_CA16},
+    {1, CB3_CA15,   CB1_CA15,   CB2_CA15},
 };
 
-bool led_matrix_indicators_kb(void) {
-    if (!led_matrix_indicators_user()) {
-        return false;
-    }
-
-    if (os_switch_indicate_count) {
-        led_matrix_set_value_all(os_switch_indicate_count % 2 ? 0 : UINT8_MAX);
-    }
-
-    return true;
-}
-#endif
+// clang-format on
 
 bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
     if (!process_record_user(keycode, record)) {
         return false;
     }
-
     switch (keycode) {
-        case KC_OSSW:
+        case RGB_TOG:
             if (record->event.pressed) {
-                default_layer_xor(1U << 0);
-                default_layer_xor(1U << 2);
-                eeconfig_update_default_layer(default_layer_state);
-                os_switch_timer_buffer = timer_read32();
-#ifdef LED_MATRIX_ENABLE
-                if (!led_matrix_is_enabled()) {
-                    led_toggle_count = 4;
-                    led_matrix_enable();
+                switch (rgb_matrix_get_flags()) {
+                    case LED_FLAG_ALL: {
+                        rgb_matrix_set_flags(LED_FLAG_NONE);
+                        rgb_matrix_set_color_all(0, 0, 0);
+                    } break;
+                    default: {
+                        rgb_matrix_set_flags(LED_FLAG_ALL);
+                    } break;
                 }
-#endif
+            }
+            if (!rgb_matrix_is_enabled()) {
+                rgb_matrix_set_flags(LED_FLAG_ALL);
+                rgb_matrix_enable();
             }
             return false;
-        default:
-            return true;
     }
+    return true;
 }
+#endif
