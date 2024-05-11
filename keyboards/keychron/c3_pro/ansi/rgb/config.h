@@ -17,8 +17,8 @@
 #pragma once
 
 /* Indication led */
-#define LED_MAC_OS_PIN A4
-#define LED_WIN_OS_PIN A5
+#define LED_MAC_OS_PIN A6
+#define LED_WIN_OS_PIN A7
 
 #define SNLED27351_I2C_ADDRESS_1 SNLED27351_I2C_ADDRESS_GND
 
